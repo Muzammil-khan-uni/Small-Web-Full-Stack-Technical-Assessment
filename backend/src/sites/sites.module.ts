@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
+import { VisitsModule } from '../visits/visits.module.js';
+import { Site, SiteSchema } from './schemas/site.schema.js';
 import { SitesController } from './sites.controller.js';
 import { SitesService } from './sites.service.js';
-import { Site, SiteSchema } from './schemas/site.schema.js';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { Site, SiteSchema } from './schemas/site.schema.js';
         schema: SiteSchema,
       },
     ]),
+    VisitsModule,
   ],
   controllers: [SitesController],
   providers: [SitesService],
